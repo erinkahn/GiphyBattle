@@ -5,9 +5,9 @@ var WinnerComponent = Vue.component("winner", {
 		}
 	},
 	template: `
-		<div>
+		<div class="win">
 
-			<h1> Congrats, {{ winner }} </h1> 
+			<h1> Congrats, Name{{ winner }} </h1> 
 
 			<p> You are the winner!!! </p>
 

@@ -5,17 +5,19 @@ var SelectGiphyComponent = Vue.component("selectGiphy", {
 		}
 	},
 	template: `
-		<div>
+		<div class="submitGiphy">
 
 			<h1> Submit a Giphy </h1>
 
 			<p> Choose the best giphy to match this subject: </p> 
-			<p> {{ " " }} </p>
+			<p> {{ "subject" }} </p>
 
 			<input type="text" placeholder="search for a giphy">
 
-			<router-link to="/" class="nav"> < Back </router-link>
-			<router-link to="/vote" class="nav"> Submit Giphy </router-link>
+			<div class="back-and-submit">
+				<router-link to="/" class="nav"> < </router-link>
+				<router-link to="/vote" class="nav"> Submit Giphy </router-link>
+			</div>
 
 
 		</div>
