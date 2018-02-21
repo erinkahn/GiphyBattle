@@ -2,7 +2,7 @@ var HomeComponent = Vue.component("home", {
 	template: `
 		<div class="home">
 
-			<h1>GiphyBattle</h1>
+			<h1><img src="dist/img/logo.png"></h1>
 
 			<h2>How to play:</h2>
 

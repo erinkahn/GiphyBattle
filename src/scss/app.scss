@@ -8,7 +8,9 @@
 }
 
 body {
+	font-family: 'Raleway', sans-serif;
 	background-color: #fff;
+	color: gray;
 }
 
 .home, .submitGiphy, .vote, .win{
@@ -21,10 +23,12 @@ body {
 	h1{
 		font-size: 33px;
 		margin: 80px auto;
+		display: flex;
 	}
 
 	h2{
-		font-size: 20px;
+		font-weight: 700;
+		font-size: 25px;
 		padding-bottom: 20px;
 	}
 
@@ -38,26 +42,32 @@ body {
 		height: 50px;
 		margin: 20px auto;
 		padding: 0 25px;
-		font-size: 1.5em;
-		border: none;
-		text-decoration: underline;
+		font-size: 1.2em;
+		border: 0;
+		border-bottom: 2px solid #6b469c;
+		background: transparent;
 		text-align: center;
+		color: #6b469c;
+		outline: 0; //gets rid of box outline when you type
+
+		&::placeholder{
+			color: #6b469c;
+		}
 	}
 
 	.nav {
 		margin-top: 40px;
-		font-size: 1.5em;
-		color: gray;
-		border: 1px solid gray;
+		font-size: 1.3em;
+		color: #6b469c;
+		border: 1px solid #6b469c;
 		text-decoration: none;
 		padding: 18px;
-		border-radius: 19px;
 		width: 180px;
 		align-self: center;
 		white-space: nowrap;
 
 		&:hover{
-			background-color: gray;
+			background-color: #6b469c;
 			color: #fff;
 		}
 	}

@@ -14,7 +14,7 @@ var VoteComponent = Vue.component("vote", {
 			<p> {{ }} 0 Submissions </p>
 
 			<div class="back-and-submit">
-				<router-link to="/selectGiphy" class="nav"> < Back </router-link>
+				<router-link to="/selectGiphy" class="nav"> < </router-link>
 				<router-link to="/winner" class="nav"> Vote </router-link>
 			</div>
 
