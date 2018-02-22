@@ -18,5 +18,5 @@ var WinnerComponent = Vue.component("winner", {
 		
 		</div>
 	`,
-	props: []
+	props: ['status']
 })

@@ -1,10 +1,7 @@
-var searchTerm;
-//API Key : bhh0KO5k7BBVEyB1kfKqEHsZNozI68e5
-const GIPHY_API_BASE = "http://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=bhh0KO5k7BBVEyB1kfKqEHsZNozI68e5"; 
 
 const router = new VueRouter({
 	routes: [
-		{ path: '', component: HomeComponent },
+		{ path: '/', component: HomeComponent },
 		{ path: '/selectGiphy', component: SelectGiphyComponent },
 		{ path: '/vote', component: VoteComponent },
 		{ path: '/winner', component: WinnerComponent },
@@ -16,32 +13,34 @@ var app = new Vue({
 	el: "#app",
 	router: router,
 	data: {
-		searchTerm: "",
-		giphys: [],
-		results: false,
-		current_gif: false
+		status: null
+	},
+	created: function(){
+
+		this.updateStatus();
+
+		//set timer every 5 seconds to update status of game
+		setInterval(this.updateStatus, 5000);
+
 	},
 	methods: {
-		getGiphys: function() {
-			var self = this;
-			axios.get(GIPHY_API_BASE, {
-				params: {
-					api_key: 'bhh0KO5k7BBVEyB1kfKqEHsZNozI68e5',
-					 q: self.query.split(' ').join('+'),
-                    limit: 50
-				}
-			})
-			.then(function (response) {
-                self.results = response.data.data;
-                self.current_gif = false;
-            })
-            .catch(function (error) {
-                console.log(error);
-            });    
+		receivedUsername: function(usernameChanged) {
+			this.username = usernameChanged;
+			this.updateStatus();
 		},
-		viewGIF: function (gif) {
-            this.current_gif = gif.images.original.url;
-        }
+		receivedSubmission: function(giphySubmit) {
+			//ajax post/submission
+		},
+		updateStatus: function() {
+			console.log("updateStatus")
+			axios
+				.get('http://circuslabs.net:6432/status')
+				.then((response) => {
+					console.log('you got a response');
+					this.status = response.data;
+				})
+
+		}
 	}
 })
 

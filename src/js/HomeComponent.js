@@ -1,4 +1,9 @@
 var HomeComponent = Vue.component("home", {
+	data: function() {
+		return {
+			username: null
+		}
+	},
 	template: `
 		<div class="home">
 
@@ -6,14 +11,23 @@ var HomeComponent = Vue.component("home", {
 
 			<h2>How to play:</h2>
 
-			<p>Watch the game screen to see the subject. Choose a Giphy to match the subject in the best way possible.</p>
+			<p>Watch the game screen to see the prompt. Choose a Giphy to match the prompt in the best way possible.</p>
 
-			<p>Vote which Giphy(s) is/are the best. The Giphy with the most votes wins!</p>
+			<p>Vote which Giphy is the best. The Giphy with the most votes wins!</p>
 
-			<input type="text" placeholder="type your name here">
+			<input v-model="username" placeholder="type your name here">
 
-			<router-link to="/selectGiphy" class="nav"> Let's Battle </router-link>
+			<router-link :disabled="!username" to="/selectGiphy" class="nav"> Let's Battle </router-link>
 
 		</div>
 	`,
+	watch: {
+		username: function() {
+			console.log("you entered a username");
+
+			//event send up to app - usernameChanged
+			this.$emit("usernamechanged", usernameChanged);
+		}
+	},
+	props: ['status'] //data coming down into this component
 })

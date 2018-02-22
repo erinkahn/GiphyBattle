@@ -20,5 +20,5 @@ var VoteComponent = Vue.component("vote", {
 
 		</div>
 	`,
-	props: []
+	props: ['status']
 })
