@@ -13,7 +13,7 @@ var app = new Vue({
 	el: "#app",
 	router: router,
 	data: {
-		status: null
+		status: null,
 	},
 	created: function(){
 
@@ -30,7 +30,15 @@ var app = new Vue({
 		},
 		receivedSubmission: function(giphySubmit) {
 			//ajax post/submission
+			this.searchTerm = searchTermChanged;
+
 		},
+		// getGiphys: function() {
+		// 	if (!searchTerm === null) {
+		// 		this.giphys = response.data.data;
+		// 		return;
+		// 	}
+		// },
 		updateStatus: function() {
 			console.log("updateStatus")
 			axios
