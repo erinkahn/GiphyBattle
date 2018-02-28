@@ -7,7 +7,8 @@ var SelectGiphyComponent = Vue.component("select-giphy", {
 	data: function() {
 		return {
 			searchTerm: null,
-			giphys: []
+			giphys: [],
+			clickedAgiphy: false,
 		}
 	},
 	template: `
@@ -23,7 +24,7 @@ var SelectGiphyComponent = Vue.component("select-giphy", {
 
 			<ul class="giphys">
 				<li v-for="giphy in giphys">
-					<a> <img v-bind:src="giphy.images.original.url"></a>
+					<img @click="choseGif(giphy.images.original.url)"  v-bind:src="giphy.images.original.url">
 					<br><br>
 				</li>
 			</ul>
@@ -31,7 +32,7 @@ var SelectGiphyComponent = Vue.component("select-giphy", {
 			<div class="back-and-submit">
 				<router-link to="/" class="nav"> < </router-link>
 
-				<router-link :disabled="!searchTerm" to="/vote" class="nav"> Submit Giphy </router-link>
+				<router-link :disabled="!searchTerm || !clickedAgiphy" to="/vote" class="nav"> Submit Giphy </router-link>
 			</div>
 
 
@@ -50,6 +51,17 @@ var SelectGiphyComponent = Vue.component("select-giphy", {
 					console.log('you got gifs and here they are: ', response.data.data);
 					this.giphys = response.data.data;
 				}) 
+
+		}
+	},
+	methods: {
+		choseGif: function(giphyUrl) {
+			console.log('clicked', giphyUrl);
+
+			this.clickedAgiphy = true;
+
+			//event send up to app - chose a giphy	
+			this.$emit("choseagif", giphyUrl); //send url up to parent
 
 		}
 	},

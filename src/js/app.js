@@ -14,6 +14,7 @@ var app = new Vue({
 	router: router,
 	data: {
 		status: null,
+		username: ''
 	},
 	created: function(){
 
@@ -28,19 +29,24 @@ var app = new Vue({
 			this.username = usernameChanged;
 			this.updateStatus();
 		},
-		receivedSubmission: function(giphySubmit) {
+		receivedGiphyUrl: function(giphyUrl) {
+			console.log("app.js receivedGiphyUrl", giphyUrl)
+			this.choseGif = giphyUrl;
 			//ajax post/submission
-			this.searchTerm = searchTermChanged;
-
+			axios
+				.post('http://circuslabs.net:6432/submission', {
+					giphyURL: giphyUrl,
+					username: this.username
+				})
+				.then((response) => {
+					console.log('hey server, remember the giphy I chose for later');
+				})
+				.catch(function (error) {
+					console.log('you got an error');
+				})
 		},
-		// getGiphys: function() {
-		// 	if (!searchTerm === null) {
-		// 		this.giphys = response.data.data;
-		// 		return;
-		// 	}
-		// },
 		updateStatus: function() {
-			console.log("updateStatus")
+			console.log("updateStatus");
 			axios
 				.get('http://circuslabs.net:6432/status')
 				.then((response) => {

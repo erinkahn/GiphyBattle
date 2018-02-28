@@ -26,7 +26,7 @@ var HomeComponent = Vue.component("home", {
 			console.log("you entered a username");
 
 			//event send up to app - usernameChanged
-			this.$emit("usernamechanged", usernameChanged);
+			this.$emit("usernamechanged", this.username);
 		}
 	},
 	props: ['status'] //data coming down into this component
