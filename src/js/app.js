@@ -31,6 +31,7 @@ var app = new Vue({
 		},
 		receivedGiphyUrl: function(giphyUrl) {
 			console.log("app.js receivedGiphyUrl", giphyUrl)
+			
 			this.choseGif = giphyUrl;
 			//ajax post/submission
 			axios
