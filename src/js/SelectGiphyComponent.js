@@ -23,7 +23,8 @@ var SelectGiphyComponent = Vue.component("select-giphy", {
 
 			<ul class="giphys">
 				<li v-for="giphy in giphys">
-					{{ giphy }}
+					<a> <img v-bind:src="giphy.images.original.url"></a>
+					<br><br>
 				</li>
 			</ul>
 
@@ -40,8 +41,8 @@ var SelectGiphyComponent = Vue.component("select-giphy", {
 		searchTerm: function() {
 			console.log("you entered a search term");
 
-			//`axios`, `get` gifs from giphy, and `then` 
-			//when they come back, put the `response` data 
+			//`axios`, `get` gifs from giphy based on the search term
+			//and `then` when they come back, put the `response` data 
 			//in my variable called `this.giphys`
 			axios
 				.get("http://api.giphy.com/v1/gifs/search?q=" + this.searchTerm + "&limit=10&offset=0&rating=G&lang=en" + "&api_key=bhh0KO5k7BBVEyB1kfKqEHsZNozI68e5")

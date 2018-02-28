@@ -95,8 +95,22 @@ body {
 
 
 
-
-
+.giphys{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	li{
+		
+		a{
+			img{
+				width: 250px;
+				height: 200px;
+				padding: 20px;
+			}
+		}
+	}
+}
 
 
 
