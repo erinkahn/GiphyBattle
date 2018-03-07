@@ -97,6 +97,7 @@ button{
 	border: 1px solid #6b469c;
 	color: #6b469c;
 	font-size: 1.3em;
+	
 	&:hover{
 		background-color: #6b469c;
 		color: #fff;
@@ -114,6 +115,7 @@ button{
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
+
 	li{
 		
 		img{
@@ -122,6 +124,23 @@ button{
 			padding: 20px;
 		}
 		
+	}
+}
+
+.votes{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	li{
+		display: flex;
+		flex-direction: column;
+		img{
+			width: 250px;
+			height: 200px;
+			padding: 20px;
+		}
 	}
 }
 

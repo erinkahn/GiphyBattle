@@ -13,9 +13,10 @@ var VoteComponent = Vue.component("vote", {
 
 			<p> {{ status.submissions.length }} Submissions </p>
 
-			<ul>
+			<ul class="votes">
 				<li v-for="submission in status.submissions">
-					{{submission}}
+					<img :src="submission.giphyURL">
+					{{submission.username}} {{submission.upvotes.length}} votes
 				</li>
 			</ul>
 
@@ -28,3 +29,5 @@ var VoteComponent = Vue.component("vote", {
 	`,
 	props: ['status']
 })
+
+

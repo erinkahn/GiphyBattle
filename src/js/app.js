@@ -6,7 +6,7 @@ const router = new VueRouter({
 		{ path: '/vote', component: VoteComponent },
 		{ path: '/winner', component: WinnerComponent },
 	]
-})
+});
 
 
 var app = new Vue({
@@ -30,7 +30,7 @@ var app = new Vue({
 			this.updateStatus();
 		},
 		receivedGiphyUrl: function(giphyUrl) {
-			console.log("app.js receivedGiphyUrl", giphyUrl)
+			console.log("app.js receivedGiphyUrl", giphyUrl);
 			
 			this.choseGif = giphyUrl;
 			//ajax post/submission
@@ -53,10 +53,10 @@ var app = new Vue({
 				.then((response) => {
 					console.log('you got a response');
 					this.status = response.data;
-				})
+				});
 
 		}
 	}
-})
+});
 
 
