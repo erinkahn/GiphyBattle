@@ -18,7 +18,11 @@
 
 		
 		<div id="app">
-			<router-view :status="status" @usernamechanged ="receivedUsername" @choseagif="receivedGiphyUrl"></router-view>
+			<router-view 
+				:status="status" 
+				@usernamechanged="receivedUsername" 
+				@choseagif="receivedGiphyUrl">
+			</router-view>
 		</div>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js"></script>

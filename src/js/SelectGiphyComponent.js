@@ -9,6 +9,7 @@ var SelectGiphyComponent = Vue.component("select-giphy", {
 			searchTerm: null,
 			giphys: [],
 			clickedAgiphy: false,
+			chosenGiphyURL: "",
 		}
 	},
 	template: `
@@ -24,7 +25,7 @@ var SelectGiphyComponent = Vue.component("select-giphy", {
 
 			<ul class="giphys">
 				<li v-for="giphy in giphys">
-					<img @click="choseGif(giphy.images.original.url)"  v-bind:src="giphy.images.original.url">
+					<img @click="choseGif(giphy.images.original.url, $event)"  v-bind:src="giphy.images.original.url">
 					<br><br>
 				</li>
 			</ul>
@@ -32,7 +33,10 @@ var SelectGiphyComponent = Vue.component("select-giphy", {
 			<div class="back-and-submit">
 				<router-link to="/" class="nav"> < </router-link>
 
-				<router-link :disabled="!searchTerm || !clickedAgiphy" to="/vote" class="nav"> Submit Giphy </router-link>
+
+				<button @click="submitButtonClicked" :disabled="!searchTerm || !clickedAgiphy">Submit</button>
+
+				<!--<router-link :disabled="!searchTerm || !clickedAgiphy" to="/vote" class="nav"> Submit Giphy </router-link>-->
 			</div>
 
 
@@ -55,15 +59,49 @@ var SelectGiphyComponent = Vue.component("select-giphy", {
 		}
 	},
 	methods: {
-		choseGif: function(giphyUrl) {
+		choseGif: function(giphyUrl, event) {
 			console.log('clicked', giphyUrl);
 
 			this.clickedAgiphy = true;
+			this.chosenGiphyURL = giphyUrl;
+			
+			document.querySelectorAll(".active").forEach(function(activeGiphys) {
+				activeGiphys.classList.remove("active")
+			})
+
+			event.target.classList.add("active")
 
 			//event send up to app - chose a giphy	
-			this.$emit("choseagif", giphyUrl); //send url up to parent
+			// this.$emit("choseagif", giphyUrl); //send url up to parent
 
+		},
+
+		submitButtonClicked: function() {
+			console.log("submitButtonClicked")
+			this.$emit("choseagif", this.chosenGiphyURL);
+			this.$router.push("/vote")
 		}
 	},
 	props: ['status'] //data coming down into this component
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -83,7 +83,7 @@ body {
 		}
 	}
 
-	.back-and-submit {
+	.back-and-submit{
 		padding: 50px;
 
 		.nav{
@@ -92,7 +92,21 @@ body {
 	}
 }
 
+button{
+	padding: 18.5px 30px;
+	border: 1px solid #6b469c;
+	color: #6b469c;
+	font-size: 1.3em;
+	&:hover{
+		background-color: #6b469c;
+		color: #fff;
+		cursor: pointer;
+	}
+}
 
+.active{
+	border: 3px solid #6b469c;
+}
 
 
 .giphys{
