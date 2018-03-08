@@ -41,9 +41,6 @@ var SelectGiphyComponent = Vue.component("select-giphy", {
 			});
 
 			event.target.classList.add("active");
-
-			//event send up to app - chose a giphy	
-			// this.$emit("choseagif", giphyUrl); //send url up to parent
 		},
 
 		submitButtonClicked: function submitButtonClicked() {

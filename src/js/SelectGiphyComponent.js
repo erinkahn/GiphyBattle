@@ -54,7 +54,7 @@ var SelectGiphyComponent = Vue.component("select-giphy", {
 				.then((response) => {
 					console.log('you got gifs and here they are: ', response.data.data);
 					this.giphys = response.data.data;
-				}) 
+			}) 
 
 		}
 	},
@@ -66,24 +66,21 @@ var SelectGiphyComponent = Vue.component("select-giphy", {
 			this.chosenGiphyURL = giphyUrl;
 			
 			document.querySelectorAll(".active").forEach(function(activeGiphys) {
-				activeGiphys.classList.remove("active")
-			})
+				activeGiphys.classList.remove("active");
+			});
 
-			event.target.classList.add("active")
-
-			//event send up to app - chose a giphy	
-			// this.$emit("choseagif", giphyUrl); //send url up to parent
+			event.target.classList.add("active");
 
 		},
 
 		submitButtonClicked: function() {
-			console.log("submitButtonClicked")
+			console.log("submitButtonClicked");
 			this.$emit("choseagif", this.chosenGiphyURL);
-			this.$router.push("/vote")
+			this.$router.push("/vote");
 		}
 	},
 	props: ['status'] //data coming down into this component
-})
+});
 
 
 

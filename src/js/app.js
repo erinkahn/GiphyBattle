@@ -29,6 +29,7 @@ var app = new Vue({
 			this.username = usernameChanged;
 			this.updateStatus();
 		},
+
 		receivedGiphyUrl: function(giphyUrl) {
 			console.log("app.js receivedGiphyUrl", giphyUrl);
 			
@@ -46,6 +47,14 @@ var app = new Vue({
 					console.log('you got an error');
 				})
 		},
+
+		// receivedVote: function(index) {
+		// 	console.log('app.js received votes,' index);
+
+		// 	this.userVoted = index;
+
+		// },
+
 		updateStatus: function() {
 			console.log("updateStatus");
 			axios

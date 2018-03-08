@@ -7,16 +7,15 @@ var WinnerComponent = Vue.component("winner", {
 	template: `
 		<div class="win">
 
-			<h1> Congrats, Name{{ winner }} </h1> 
+			<h1> Congrats, {{ status.submissions[0].username }} </h1> 
 
 			<p> You are the winner!!! </p>
 
-			<p> {{ " " }} </p>
+			<p> <img :src="status.submissions[0].giphyURL"> </p>
 
 			<router-link to="/" class="nav"> play again </router-link>
 
-		
 		</div>
 	`,
 	props: ['status']
-})
+});
