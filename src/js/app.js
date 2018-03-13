@@ -60,11 +60,9 @@ var app = new Vue({
 					//and it looks like we’re now in the post game phase, 
 					//so change page to the winner page	
 					if (this.status.phase == 'post-game'){
-						this.$router.push(‘/winner’);
+						this.$router.push('/winner');
 					}
-				});
-
-			} 
+				}); 
 
 		}
 	}
