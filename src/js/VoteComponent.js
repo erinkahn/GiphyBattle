@@ -8,7 +8,7 @@ var VoteComponent = Vue.component("vote", {
 		<div class="vote">
 
 			<h1>Cast Your Vote</h1>
-			<p>Vote for the best giphy that matches this subject: </p>
+			<p>Click to vote for the best giphy that matches this subject: </p>
 			<p> {{ status.question }} </p>
 
 			<p> {{ status.submissions.length }} Submissions </p>
@@ -22,7 +22,6 @@ var VoteComponent = Vue.component("vote", {
 
 			<div class="back-and-submit">
 				<router-link to="/selectGiphy" class="nav"> < </router-link>
-				<router-link :disabled="!userVoted" to="/winner" class="nav"> Vote </router-link>
 			</div>
 
 		</div>

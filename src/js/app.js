@@ -48,13 +48,6 @@ var app = new Vue({
 				})
 		},
 
-		// receivedVote: function(index) {
-		// 	console.log('app.js received votes,' index);
-
-		// 	this.userVoted = index;
-
-		// },
-
 		updateStatus: function() {
 			console.log("updateStatus");
 			axios
@@ -62,7 +55,16 @@ var app = new Vue({
 				.then((response) => {
 					console.log('you got a response');
 					this.status = response.data;
+
+					//we just got a status update from the server, 
+					//and it looks like we’re now in the post game phase, 
+					//so change page to the winner page	
+					if (this.status.phase == 'post-game'){
+						this.$router.push(‘/winner’);
+					}
 				});
+
+			} 
 
 		}
 	}
