@@ -24,6 +24,8 @@ body {
 		font-size: 33px;
 		margin: 80px auto;
 		display: flex;
+		text-align: center;
+		justify-content: center;
 	}
 
 	h2{
@@ -148,12 +150,6 @@ button{
 
 
 .win{
-	background-image: url(../../dist/img/giphy.gif);
-	background-repeat: no-repeat;
-	margin: 0;
-	background-size: cover;
-	background-position: center;
-	padding-bottom: 20%;
 
 	img{
 		width: 300px;

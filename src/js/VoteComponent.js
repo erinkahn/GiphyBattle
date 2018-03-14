@@ -9,7 +9,7 @@ var VoteComponent = Vue.component("vote", {
 
 			<h1>Cast Your Vote</h1>
 			<p>Click to vote for the best giphy that matches this subject: </p>
-			<p>Once you've voted on your favorite giphy, wait until the winner is revealed. </p>
+			<p>You have {{ Math.round(status.timeLeftInPhase / 1000) }} seconds left to vote.</p>
 			<p> {{ status.question }} </p>
 
 			<p> {{ status.submissions.length }} Submissions </p>

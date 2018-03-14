@@ -14,7 +14,7 @@ var app = new Vue({
 	router: router,
 	data: {
 		status: null,
-		username: ''
+		username: localStorage.getItem('username')
 	},
 	created: function(){
 

@@ -1,8 +1,11 @@
 var HomeComponent = Vue.component("home", {
 	data: function() {
 		return {
-			username: null
+			localUsername: null
 		}
+	},
+	created: function() {
+		this.localUsername = this.username;
 	},
 	template: `
 		<div class="home">
@@ -15,19 +18,21 @@ var HomeComponent = Vue.component("home", {
 
 			<p>Vote which Giphy is the best. The Giphy with the most votes wins!</p>
 
-			<input v-model="username" placeholder="type your name here">
+			<input v-model="localUsername" placeholder="type your name here">
 
-			<router-link :disabled="!username" to="/selectGiphy" class="nav"> Let's Battle </router-link>
+			<router-link :disabled="!localUsername" to="/selectGiphy" class="nav"> Let's Battle </router-link>
 
 		</div>
 	`,
 	watch: {
-		username: function() {
+		localUsername: function() {
 			console.log("you entered a username");
 
+			localStorage.setItem('username', this.localUsername);
+
 			//event send up to app - usernameChanged
-			this.$emit("usernamechanged", this.username);
+			this.$emit("usernamechanged", this.localUsername);
 		}
 	},
-	props: ['status'] //data coming down into this component
+	props: ['status', 'username'] //data coming down into this component
 })
